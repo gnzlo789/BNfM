@@ -32,53 +32,53 @@ duration = ConditionalProbabilityTable([
 
 
 day = ConditionalProbabilityTable([
-	['breakfast', 'L', 1.0],
-	['breakfast', 'M', 0.0],
-	['breakfast', 'M', 0.0],
-	['breakfast', 'J', 0.0],
-	['breakfast', 'V', 0.0],
-	['breakfast', 'S', 0.0],
-	['breakfast', 'D', 0.0],
+	['breakfast', 'Monday', 1.0],
+	['breakfast', 'Tuesday', 0.0],
+	['breakfast', 'Wednesday', 0.0],
+	['breakfast', 'Thursday', 0.0],
+	['breakfast', 'Friday', 0.0],
+	['breakfast', 'Saturday', 0.0],
+	['breakfast', 'Sunday', 0.0],
 
-	['lunch', 'L', 0.0],
-	['lunch', 'M', 0.5],
-	['lunch', 'M', 0.5],
-	['lunch', 'J', 0.0],
-	['lunch', 'V', 0.0],
-	['lunch', 'S', 0.0],
-	['lunch', 'D', 0.0],
+	['lunch', 'Monday', 0.0],
+	['lunch', 'Tuesday', 0.5],
+	['lunch', 'Wednesday', 0.5],
+	['lunch', 'Thursday', 0.0],
+	['lunch', 'Friday', 0.0],
+	['lunch', 'Saturday', 0.0],
+	['lunch', 'Sunday', 0.0],
 
-	['dinner', 'L', 1.0],
-	['dinner', 'M', 0.0],
-	['dinner', 'M', 0.0],
-	['dinner', 'J', 0.0],
-	['dinner', 'V', 0.0],
-	['dinner', 'S', 0.0],
-	['dinner', 'D', 0.0],
-	
-	['hangout', 'L', 1.0],
-	['hangout', 'M', 0.0],
-	['hangout', 'M', 0.0],
-	['hangout', 'J', 0.0],
-	['hangout', 'V', 0.0],
-	['hangout', 'S', 0.0],
-	['hangout', 'D', 0.0],
+	['dinner', 'Monday', 1.0],
+	['dinner', 'Tuesday', 0.0],
+	['dinner', 'Wednesday', 0.0],
+	['dinner', 'Thursday', 0.0],
+	['dinner', 'Friday', 0.0],
+	['dinner', 'Saturday', 0.0],
+	['dinner', 'Sunday', 0.0],
 
-	['call', 'L', 1.0],
-	['call', 'M', 0.0],
-	['call', 'M', 0.0],
-	['call', 'J', 0.0],
-	['call', 'V', 0.0],
-	['call', 'S', 0.0],
-	['call', 'D', 0.0],
+	['hangout', 'Monday', 1.0],
+	['hangout', 'Tuesday', 0.0],
+	['hangout', 'Wednesday', 0.0],
+	['hangout', 'Thursday', 0.0],
+	['hangout', 'Friday', 0.0],
+	['hangout', 'Saturday', 0.0],
+	['hangout', 'Sunday', 0.0],
 
-	['meeting', 'L', 1.0],
-	['meeting', 'M', 0.0],
-	['meeting', 'M', 0.0],
-	['meeting', 'J', 0.0],
-	['meeting', 'V', 0.0],
-	['meeting', 'S', 0.0],
-	['meeting', 'D', 0.0]
+	['call', 'Monday', 1.0],
+	['call', 'Tuesday', 0.0],
+	['call', 'Wednesday', 0.0],
+	['call', 'Thursday', 0.0],
+	['call', 'Friday', 0.0],
+	['call', 'Saturday', 0.0],
+	['call', 'Sunday', 0.0],
+
+	['meeting', 'Monday', 1.0],
+	['meeting', 'Tuesday', 0.0],
+	['meeting', 'Wednesday', 0.0],
+	['meeting', 'Thursday', 0.0],
+	['meeting', 'Friday', 0.0],
+	['meeting', 'Saturday', 0.0],
+	['meeting', 'Sunday', 0.0]
 ], [meeting_type])
 
 time = ConditionalProbabilityTable([
@@ -98,32 +98,32 @@ time = ConditionalProbabilityTable([
 ], [meeting_type])
 
 place = ConditionalProbabilityTable([
-	['breakfast', 'S', '8:00', 0, 0.0], # PlaceId = 0 = Home
-	['breakfast', 'L', '9:00', 1, 1.0], # PlaceId = 1 = Bar
-	
-	['lunch', 'V', '12:00', 1, 1.0],
+	['breakfast', 'Saturday', '8:00', 0, 0.0], # PlaceId = 0 = Home
+	['breakfast', 'Monday', '9:00', 1, 1.0], # PlaceId = 1 = Bar
 
-	['dinner', 'V', '20:00', 1, 1.0],
+	['lunch', 'Friday', '12:00', 1, 1.0],
 
-	['hangout', 'V', '16:00', 1, 1.0],
+	['dinner', 'Friday', '20:00', 1, 1.0],
 
-	['call', 'V', '11:00', 1, 1.0],
+	['hangout', 'Friday', '16:00', 1, 1.0],
 
-	['meeting', 'V', '11:00', 1, 1.0],
-], [meeting_type, day, time]) 
+	['call', 'Friday', '11:00', 1, 1.0],
+
+	['meeting', 'Friday', '11:00', 1, 1.0],
+], [meeting_type, day, time])
 
 participant = ConditionalProbabilityTable([
-	['L', '9:00', 1, True, 1.0], 
+	['Monday', '9:00', 1, True, 1.0],
 
-	['V', '9:30', 1, True, 1.0], 
-	
-	['V', '12:00', 1, True, 1.0],
+	['Friday', '9:30', 1, True, 1.0],
 
-	['V', '20:00', 1, True, 1.0],
+	['Friday', '12:00', 1, True, 1.0],
 
-	['V', '16:00', 1, True, 1.0],
+	['Friday', '20:00', 1, True, 1.0],
 
-	['V', '11:00', 1, False, 1.0],
+	['Friday', '16:00', 1, True, 1.0],
+
+	['Friday', '11:00', 1, False, 1.0],
 ], [day, time, place])
 
 # Make the states
@@ -148,7 +148,6 @@ network.add_transition( s3, s5 )
 network.add_transition( s4, s5 )
 network.bake()
 
-
 # The first observation is that the duration is thirty minutes
 first_observation = { 'duration' : 30 }
 
@@ -165,25 +164,25 @@ print "\n".join( "{}\t{}".format( state.name, belief ) for state, belief in zip(
 
 ### Testing the new add_items method
 
-print "== Meeting Type BEFORE =="
-print meeting_type
+# print "== Meeting Type BEFORE =="
+# print meeting_type
 
-print "== Add new key to meeting type =="
-meeting_type.add_items( ['call'] )
-meeting_type.train( ['call'], inertia=0.7 )
+# print "== Add new key to meeting type =="
+meeting_type.add_items( ['another_type'] )
+meeting_type.train( ['another_type'], inertia=0.7 )
 
-print "== Meeting Type AFTER =="
-print meeting_type
+# print "== Meeting Type AFTER =="
+# print meeting_type
 
-print
+# print
 
-print "== Duration BEFORE =="
-print duration
+# print "== Duration BEFORE =="
+# print duration
 
 print "== Add new row to the table =="
-# I have to add every new possibility manually
-duration.add_items( [['call', 30], ['call',60],['call', 120],['breakfast', 120], ['lunch', 120]] )
-duration.train( [['call', 120], ['call', 30]] )
+duration.add_items( [['dinner', 120]] )
+data = [ ['breakfast', 120, 'Monday', '9:00', 1, True] ] # It is necessary to update the probabilities
+network.update( data ) # Automatically generates the new possible values.
 
 print "== Duration AFTER =="
 print duration
@@ -191,19 +190,18 @@ print duration
 print
 
 print "== Network Training =="
-#data = [ ['call', 30], ['breakfast', 120], ['lunch', 120] ]
-data = [ ['breakfast', 30, 'L', '9:00', 1, True] ]
+data = [ ['call', 30, 'Monday', '9:00', 1, True], ['breakfast', 120, 'Monday', '9:00', 1, True] ]
 network.train( data )
 print "== Meeting Type =="
 print meeting_type
 print "== Duration =="
 print duration
-
-network.bake()
+print "== Place =="
+print place
 
 # The second observation is that the meeting type is a 'meeting'
-# second_observation = { 'type' : 'call' } # Works
-second_observation = { 'duration' : 30 }
+#second_observation = { 'type' : 'call' } # Works
+second_observation = { 'type' : 'breakfast', 'duration': 120 }
 
 # beliefs will be an array of posterior distributions or clamped values for each state, indexed corresponding to the order
 # in self.states.
