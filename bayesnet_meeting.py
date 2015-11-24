@@ -201,7 +201,7 @@ print place
 
 # The second observation is that the meeting type is a 'meeting'
 #second_observation = { 'type' : 'call' } # Works
-second_observation = { 'type' : 'breakfast', 'duration': 120 }
+second_observation = { 'type' : 'call', 'duration': 30 }
 
 # beliefs will be an array of posterior distributions or clamped values for each state, indexed corresponding to the order
 # in self.states.
